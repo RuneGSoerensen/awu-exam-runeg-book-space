@@ -2,6 +2,7 @@ import { data, Form, Link } from "react-router";
 import Users from "~/db/models/Users";
 import { redirect } from "react-router";
 import type { Route } from "../+types/root";
+import bcrypt from "bcryptjs";
 // import {
 //   validatePassword,
 //   validateRecruiterFields,
@@ -113,7 +114,7 @@ export async function action({ request }: Route.ActionArgs) {
     // Create the user
     const newUser = await Users.create({
       email: userData.email.toString(),
-      passwordHash: userData.password.toString(),
+      passwordHash: await bcrypt.hash(userData.password.toString(), 10),
       firstName: userData.firstName.toString(),
       lastName: userData.lastName.toString(),
     });
