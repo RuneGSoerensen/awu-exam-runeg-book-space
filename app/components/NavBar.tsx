@@ -5,6 +5,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { NavLink, Form } from "react-router";
+import type { LucideIcon } from "lucide-react";
 
 export default function NavBar() {
   return (
@@ -43,7 +44,7 @@ function NavItem({
   end = false,
 }: {
   to: string;
-  icon: React.ComponentType<{ size?: number }>;
+  icon: LucideIcon;
   end?: boolean;
 }) {
   return (
