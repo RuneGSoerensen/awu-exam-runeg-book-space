@@ -1,7 +1,6 @@
-import { data, Form, Link } from "react-router";
+import { data, Form, Link, redirect } from "react-router";
 import Users from "~/db/models/Users";
-import { redirect } from "react-router";
-import type { Route } from "../+types/root";
+import type { Route } from "./+types/signup";
 import bcrypt from "bcryptjs";
 // import {
 //   validatePassword,
@@ -78,11 +77,11 @@ export default function Signup({ actionData }: Route.ComponentProps) {
               </p>
             </div>
             {/* Show error message if there is one */}
-            {/* {actionData?.error ? (
-                <div className="text-red-600">
-                  <p>{actionData?.error}</p>
-                </div>
-              ) : null} */}
+            {actionData?.error ? (
+              <div className="text-red-600">
+                <p>{actionData?.error}</p>
+              </div>
+            ) : null}
           </Form>
         </div>
       </div>
@@ -112,19 +111,12 @@ export async function action({ request }: Route.ActionArgs) {
     }
 
     // Create the user
-    const newUser = await Users.create({
+    await Users.create({
       email: userData.email.toString(),
       passwordHash: await bcrypt.hash(userData.password.toString(), 10),
       firstName: userData.firstName.toString(),
       lastName: userData.lastName.toString(),
     });
-
-    // Create the candidate or recruiter document
-    // if (userData.role === "candidate") {
-    //   await Candidate.create({
-    // userId: newUser._id,
-    //   });
-    // }
 
     // Redirect to sign in page
     return redirect("/signin");

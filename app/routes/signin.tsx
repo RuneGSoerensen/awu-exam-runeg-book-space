@@ -56,11 +56,8 @@ export default function Signin({ actionData }: Route.ComponentProps) {
 export async function action({ request }: Route.ActionArgs) {
   try {
     const user = await authenticator.authenticate("form", request);
-    console.log("Authentication successful for user:", user);
+
     if (!user) {
-      console.log(
-        "Authentication failed: No user returned from authenticator.",
-      );
       return redirect("/signin");
     }
 
