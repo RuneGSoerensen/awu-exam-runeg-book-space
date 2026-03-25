@@ -10,81 +10,86 @@ import bcrypt from "bcryptjs";
 
 export default function Signup({ actionData }: Route.ComponentProps) {
   return (
-    <main className="flex flex-col items-center pt-4">
-      <h1 className="mb-6 text-2xl font-bold">Sign up</h1>
+    <main className="mx-auto w-11/12 max-w-md pt-20">
+      <h1 className="text-2xl font-bold">
+        Welcome, <br /> sign up to continue
+      </h1>
 
       {/* User form */}
-      <div className="mx-auto w-11/12 max-w-md">
-        <h2 className="mb-2 text-center text-lg font-semibold">
-          Create an account
-        </h2>
-        <div className="flex flex-col space-y-4">
-          <Form method="post" className="flex flex-col space-y-4">
-            <label htmlFor="firstName">
-              First name
-              <input
-                type="text"
-                name="firstName"
-                placeholder="Type your first name here..."
-                className="w-full"
-              />
-            </label>
-            <label htmlFor="lastName">
-              Last name
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Type your last name here..."
-                className="w-full"
-              />
-            </label>
-            <label htmlFor="email">
-              Email
-              <input
-                type="email"
-                name="email"
-                placeholder="Type your email here..."
-                className="w-full"
-              />
-            </label>
-            <label htmlFor="password">
-              Password
-              <input
-                type="password"
-                name="password"
-                placeholder="Type your password here..."
-                className="w-full"
-              />
-            </label>
-            <label htmlFor="confirmPassword">
-              Confirm password
-              <input
-                type="password"
-                name="confirmPassword"
-                placeholder="Confirm your password here..."
-                className="w-full"
-              />
-            </label>
-            <div className="flex items-center justify-between">
-              <button type="submit" className="self-start">
-                Sign up
-              </button>
-              <p>
-                Already have an account?{" "}
-                <Link to="/signin" className="text-blue">
-                  Sign in
-                </Link>
-              </p>
-            </div>
-            {/* Show error message if there is one */}
-            {actionData?.error ? (
-              <div className="text-red-600">
-                <p>{actionData?.error}</p>
-              </div>
-            ) : null}
-          </Form>
+      <Form method="post" className="flex flex-col space-y-4">
+        <label htmlFor="firstName" className="block text-sm mt-4">
+          First name
+          <input
+            type="text"
+            name="firstName"
+            placeholder="Type your first name here..."
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
+          />
+        </label>
+
+        <label htmlFor="lastName" className="block text-sm">
+          Last name
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Type your last name here..."
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
+          />
+        </label>
+
+        <label htmlFor="email" className="block text-sm">
+          Email
+          <input
+            type="email"
+            name="email"
+            placeholder="Type your email here..."
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
+          />
+        </label>
+
+        <label htmlFor="password" className="block text-sm">
+          Password
+          <input
+            type="password"
+            name="password"
+            placeholder="Type your password here..."
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
+          />
+        </label>
+
+        <label htmlFor="confirmPassword" className="block text-sm">
+          Confirm password
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm your password here..."
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
+          />
+        </label>
+
+        {/* Show error message if there is one */}
+        {actionData?.error ? (
+          <div className="text-red-600">
+            <p>{actionData.error}</p>
+          </div>
+        ) : null}
+
+        <div className="mt-4 w-full">
+          <button
+            type="submit"
+            className="w-full bg-yellow-950 text-sm text-white py-3.5 px-4 rounded-lg"
+          >
+            Sign up
+          </button>
         </div>
-      </div>
+      </Form>
+
+      <p className="mt-4 text-center">
+        Already have an account?{" "}
+        <Link to="/signin" className="text-blue-600">
+          Sign in
+        </Link>
+      </p>
     </main>
   );
 }
