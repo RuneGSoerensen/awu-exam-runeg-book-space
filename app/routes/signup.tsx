@@ -22,7 +22,6 @@ export default function Signup({ actionData }: Route.ComponentProps) {
           <input
             type="text"
             name="firstName"
-            placeholder="Type your first name here..."
             className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
@@ -32,7 +31,6 @@ export default function Signup({ actionData }: Route.ComponentProps) {
           <input
             type="text"
             name="lastName"
-            placeholder="Type your last name here..."
             className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
@@ -42,7 +40,6 @@ export default function Signup({ actionData }: Route.ComponentProps) {
           <input
             type="email"
             name="email"
-            placeholder="Type your email here..."
             className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
@@ -52,7 +49,6 @@ export default function Signup({ actionData }: Route.ComponentProps) {
           <input
             type="password"
             name="password"
-            placeholder="Type your password here..."
             className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
@@ -62,7 +58,6 @@ export default function Signup({ actionData }: Route.ComponentProps) {
           <input
             type="password"
             name="confirmPassword"
-            placeholder="Confirm your password here..."
             className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
