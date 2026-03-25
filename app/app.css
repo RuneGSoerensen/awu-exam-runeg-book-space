@@ -2,6 +2,13 @@
 
 @theme {
   --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Newsreader", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.newsreader-font {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }

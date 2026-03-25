@@ -6,25 +6,25 @@ import type { Route } from "./+types/signin";
 export default function Signin({ actionData }: Route.ComponentProps) {
   return (
     <div className="mx-auto w-11/12 max-w-md pt-20">
-      <h1 className="text-center text-2xl font-bold">Log in</h1>
+      <h1 className="text-2xl font-bold">
+        Welcome, <br></br> sign in to continue
+      </h1>
       {/* Sign in form */}
       <Form method="post" className="flex flex-col space-y-4">
-        <label className="block">
+        <label className="block text-sm mt-4">
           Email
           <input
             type="email"
             name="email"
-            placeholder="Email"
-            className="w-full"
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
-        <label className="block">
+        <label className="block text-sm">
           Password
           <input
             type="password"
             name="password"
-            placeholder="Password"
-            className="w-full"
+            className="w-full border border-gray-800 rounded-lg px-3 py-3 mt-1"
           />
         </label>
 
@@ -37,7 +37,7 @@ export default function Signin({ actionData }: Route.ComponentProps) {
         <div className="mt-4 w-full">
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
+            className="w-full bg-yellow-950 text-sm text-white py-3.5 px-4 rounded-lg"
           >
             Log in
           </button>
