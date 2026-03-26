@@ -7,7 +7,7 @@ export default function Signin({ actionData }: Route.ComponentProps) {
   return (
     <div className="mx-auto w-11/12 max-w-md pt-20">
       <h1 className="text-2xl font-bold">
-        Welcome, <br></br> sign in to continue
+        Welcome, <br></br> sign in to
       </h1>
       {/* Sign in form */}
       <Form method="post" className="flex flex-col space-y-4">
