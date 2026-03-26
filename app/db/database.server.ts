@@ -22,8 +22,10 @@ export default async function connectDb() {
   if (!process.env.MONGODB_URL) {
     throw new Error("MONGODB_URL environment variable is not set");
   }
-
-  await mongoose.connect(process.env.MONGODB_URL).catch((error) => {
-    console.error(error);
-  });
+  try {
+    await mongoose.connect(process.env.MONGODB_URL);
+  } catch (error) {
+    console.error("Mongo connect failed:", error);
+    throw error;
+  }
 }
