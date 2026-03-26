@@ -3,6 +3,7 @@ import { FormStrategy } from "remix-auth-form";
 import { sessionStorage } from "./session.server";
 import bcrypt from "bcryptjs";
 import User from "../models/Users";
+import connectDb from "../database.server";
 
 export const authenticator = new Authenticator<{ _id: string }>();
 
@@ -18,6 +19,8 @@ type UserData = {
 };
 
 async function verifyUser(email: string, password: string) {
+  await connectDb();
+
   const user = await User.findOne({ email }).select("+passwordHash");
   if (!user) {
     throw new Error("No user found with this email.");
@@ -73,6 +76,7 @@ export async function getUser(
 }
 
 export async function getUserData(request: Request): Promise<UserData | null> {
+  await connectDb();
   const userFromSession = await getUser(request);
 
   if (!userFromSession || !userFromSession._id) {

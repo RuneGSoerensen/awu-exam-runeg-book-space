@@ -2,6 +2,7 @@ import { data, Form, Link, redirect } from "react-router";
 import Users from "~/db/models/Users";
 import type { Route } from "./+types/signup";
 import bcrypt from "bcryptjs";
+import connectDb from "~/db/database.server";
 // import {
 //   validatePassword,
 //   validateRecruiterFields,
@@ -92,6 +93,7 @@ export default function Signup({ actionData }: Route.ComponentProps) {
 // Handle form submission
 export async function action({ request }: Route.ActionArgs) {
   try {
+    await connectDb();
     const formData = await request.formData();
     const userData = Object.fromEntries(formData);
 
