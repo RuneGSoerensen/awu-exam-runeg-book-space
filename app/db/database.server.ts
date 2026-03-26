@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export default function connectDb() {
+export default async function connectDb() {
   if (process.env.NODE_ENV === "development") {
     mongoose.set("overwriteModels", true);
   }
@@ -23,7 +23,7 @@ export default function connectDb() {
     throw new Error("MONGODB_URL environment variable is not set");
   }
 
-  mongoose.connect(process.env.MONGODB_URL).catch((error) => {
+  await mongoose.connect(process.env.MONGODB_URL).catch((error) => {
     console.error(error);
   });
 }

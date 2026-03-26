@@ -8,7 +8,7 @@ import type { RenderToPipeableStreamOptions } from "react-dom/server";
 import { renderToPipeableStream } from "react-dom/server";
 import connectDb from "./db/database.server";
 
-connectDb();
+await connectDb();
 
 export const streamTimeout = 5_000;
 
